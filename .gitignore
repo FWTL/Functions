@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 /PersistMessageInAzureDataLake/local.settings.json
+/PersistMessagesInDataLake/local.settings.json

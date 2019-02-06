@@ -31,22 +31,22 @@ namespace PersistMessagesInDataLake
             }
         }
 
-        public static string CreatePath(Data data)
+        private string CreatePath(Data data)
         {
             var pathToFolder = CreateMessagePath(CreatePeerPath(data), data.Message);
             return Path.Combine(pathToFolder, data.Message.Id + ".json");
         }
 
-        private static string CreateMessagePath(string rootPath, Message message)
+        private string CreateMessagePath(string rootPath, Message message)
         {
-            string year = message.CreateDate.Year.ToString();
-            string month = message.CreateDate.Month.ToString();
-            string day = message.CreateDate.Day.ToString();
+            string year = message.CreateDate.ToString("yyyy");
+            string month = message.CreateDate.ToString("MM");
+            string day = message.CreateDate.ToString("dd");
 
             return Path.Combine(rootPath, year, month, day);
         }
 
-        public static string CreatePeerPath(Data data)
+        private string CreatePeerPath(Data data)
         {
             string peerType = ((int)data.PeerType).ToString();
             string sourceId = data.SourceId.ToString();
