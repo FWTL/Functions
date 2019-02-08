@@ -34,7 +34,7 @@ namespace PersistMessagesInDataLake
         private string CreatePath(Data data)
         {
             var pathToFolder = CreateMessagePath(CreatePeerPath(data), data.Message);
-            return Path.Combine(pathToFolder, data.Message.Id + ".json");
+            return Path.Combine(pathToFolder, $"single_{data.Message.Id}.json");
         }
 
         private string CreateMessagePath(string rootPath, Message message)
